@@ -1,0 +1,3 @@
+# Example dependencies (if you add any)
+numpy
+pandas
