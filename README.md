@@ -1,55 +1,147 @@
-# Python Explorer - A Simple Starting Template
+# Python Tesseract Explorer
 
-This repository contains a simple Python script that outputs the Zen of Python, a set of guiding principles for writing Pythonic code. This can be used as a starting point for exploring Python or as a lightweight template for new projects.
+This repository demonstrates the use of Tesseract OCR in Python for text extraction from various image formats. It processes multiple images and extracts their textual content using the `pytesseract` library.
 
-## How to Use
+## Features
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/LahcenEzzara/python-explorer.git
-   cd python-explorer
-   ```
+- Extract text from multiple image formats such as `.png`, `.jpg`, `.bmp`, `.gif`, `.webp`, and more.
+- Supports language-based OCR, including Arabic and other languages installed in Tesseract.
+- Organized directory structure for managing images and code.
 
-2. Run the script:
-   ```bash
-   python main.py
-   ```
+---
 
-3. The script will display the Zen of Python in your terminal.
+## Installation
+
+Follow these steps to set up and run the project:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/LahcenEzzara/python-tesseract-explorer.git
+cd python-tesseract-explorer
+```
+
+### 2. Set Up Python Environment
+
+It is recommended to use a virtual environment to manage dependencies.
+
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Linux/Mac
+# OR
+venv\Scripts\activate  # On Windows
+```
+
+### 3. Install Dependencies
+
+Install the required Python libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Install Tesseract OCR
+
+Ensure Tesseract OCR is installed on your system. For Ubuntu, you can use:
+
+```bash
+sudo apt update
+sudo apt install tesseract-ocr
+```
+
+### 5. Install Additional Language Support
+
+To process Arabic or other languages, install their respective Tesseract language data. For example:
+
+```bash
+sudo apt install tesseract-ocr-ara
+```
+
+---
+
+## Usage
+
+The main script processes images in the `images/` folder and extracts text from each. To run the script:
+
+```bash
+python main.py
+```
+
+The extracted text for each image will be printed in the terminal.
+
+---
+
+## Directory Structure
+
+```
+python-tesseract-explorer/
+├── images/                 # Folder containing test images
+│   ├── test_ar.png
+│   ├── test_la.png
+│   ├── test-european.jpg
+│   ├── test-small.jpg
+│   ├── test.bmp
+│   ├── test.gif
+│   ├── test.jpg
+│   ├── test.png
+│   ├── test.webp
+│   └── ...
+├── main.py                 # Python script for OCR
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation
+└── LICENSE                 # License file
+```
+
+---
 
 ## Example Output
 
-When you run the script, you'll see:
+When running the script, you will see output similar to this:
 
 ```
-The Zen of Python, by Tim Peters
+Processing: images/test_ar.png
+Extracted Text from test_ar.png:
+السلام عليكم
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
+----------------------------------------
+Processing: images/test_la.png
+Extracted Text from test_la.png:
+Hello World!
+
+----------------------------------------
+...
 ```
 
-## Why Use This?
+---
 
-- **Simplicity**: The script demonstrates how to run a Python program and interact with core Python features.
-- **The Zen of Python**: These principles serve as an excellent introduction to Python's philosophy and best practices.
+## Dependencies
+
+- **Python 3.8+**
+- **Tesseract OCR**
+- **Pytesseract**: Python wrapper for Tesseract OCR
+- **Pillow**: Python Imaging Library for image processing
+
+Install them using:
+
+```bash
+pip install pytesseract pillow
+```
+
+---
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit issues or pull requests.
+
+---
 
 ## License
 
-This repository is available under the [MIT License](LICENSE). Feel free to use it as a starting point for your projects!
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+### Notes
+
+- Make sure your `tesseract` binary is properly installed and accessible from the command line.
+- If a language is missing, download the `.traineddata` file from the [Tesseract tessdata repository](https://github.com/tesseract-ocr/tessdata) and place it in your Tesseract `tessdata` folder.
